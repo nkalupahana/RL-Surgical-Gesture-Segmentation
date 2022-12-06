@@ -164,7 +164,7 @@ def update_config_file(keys, value):
 def main():
     
     # Experiment setup
-    for name in ["JIGSAWS"]:
+    for name in ["GTEA"]:
         update_config_file(['dataset_name'], name)
         utils.set_up_dirs()
         utils.clean_up()
