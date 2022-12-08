@@ -58,6 +58,8 @@ def get_cross_val_splits():
 
         train_list = [t.strip() for t in train_list]
         test_list = [t.strip() for t in test_list]
+        train_list = [t for t in train_list if t != ""]
+        test_list = [t for t in test_list if t != ""]
 
         cross_val_splits.append({'train': train_list,
                                  'test': test_list,

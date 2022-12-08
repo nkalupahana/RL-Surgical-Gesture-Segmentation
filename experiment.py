@@ -7,24 +7,13 @@ import importlib
 import math
 import config # To trigue config update
 
-# Config should be improved: so ugly!!!
-
 import utils
 import pdb
-
-
-# This is an awkward solution since I dont know how to run multiple tf sessions..
 
 def experiment_tcn():
 
     from config import result_dir, split_num, tcn_run_num, dataset_name
-    
-    if dataset_name in ['JIGSAWS_K', 'JIGSAWS_N']:
-        feature_types = ['sensor']
-    elif dataset_name == 'GTEA':
-        feature_types = ['visual']
-    else:
-        feature_types = ['sensor', 'visual']
+    feature_types = ['visual']
 
     ####################################################
 
@@ -57,12 +46,7 @@ def experiment_trpo(naming):
                         dataset_name, split_num, tcn_run_num, 
                         trpo_test_run_num, trpo_train_run_num)
 
-    if dataset_name in ['JIGSAWS_K', 'JIGSAWS_N']:
-        feature_types = ['sensor']
-    elif dataset_name == 'GTEA':
-        feature_types = ['visual']
-    else:
-        feature_types = ['sensor', 'visual']
+    feature_types = ['visual']
 
     ####################################################
 
@@ -164,7 +148,7 @@ def update_config_file(keys, value):
 def main():
     
     # Experiment setup
-    for name in ["JIGSAWS"]:
+    for name in ["JIGSAWS", "GTEA"]:
         update_config_file(['dataset_name'], name)
         utils.set_up_dirs()
         utils.clean_up()
